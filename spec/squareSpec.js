@@ -7,17 +7,33 @@ describe("Square", function() {
     square = new Square(2, "red");
   });
 
-  describe("Area", function() {
+  describe("area", function() {
     it("should be 4 for a square", function() {
       expect(square.area()).toEqual(4);
+      square.sideLength = 3;
+      expect(square.area()).toEqual(9);
     });
   });
 
-  describe("Perimeter", function() {
+  describe("perimeter", function() {
     it("should be 8 for a square with side length 2", function() {
-      expect(square.area()).toEqual(8);
+      expect(square.perimeter()).toEqual(8);
+      square.sideLength = 3;
+      expect(square.perimeter()).toEqual(12);
     });
   });
+  
+  describe("draw", function() {
+    it("should return a string for the top half of the square", function() {
+      expect(square.draw()).toEqual("--\n| |\n--");
+      square.sideLength = 3;
+      expect(square.draw()).toEqual("---\n| |\n| |\n---");
+    });
+  });  
 
-  // Write more specs!!
+  describe("toString", function() {
+    xit("shoud return a string that says how many sides the shape has and what color it is", function() {
+      expect(shape.toString()).toEqual("[Shape sides:4, color:red ]");
+    });
+  }); 
 });
